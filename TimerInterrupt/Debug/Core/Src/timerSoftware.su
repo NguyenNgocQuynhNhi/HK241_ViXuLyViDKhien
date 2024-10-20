@@ -1,0 +1,5 @@
+timerSoftware.c:28:6:setTimerFor7SegLed	16	static
+timerSoftware.c:44:6:setTimerForDot	16	static
+timerSoftware.c:58:6:setTimer1	16	static
+timerSoftware.c:65:6:setTimerForClock	16	static
+timerSoftware.c:70:6:timerRun	4	static

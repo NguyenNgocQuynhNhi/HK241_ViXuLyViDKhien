@@ -1,0 +1,11 @@
+7segmentsLed.c:10:6:display0	8	static
+7segmentsLed.c:20:6:display1	8	static
+7segmentsLed.c:31:6:display2	8	static
+7segmentsLed.c:42:6:display3	8	static
+7segmentsLed.c:53:6:display4	8	static
+7segmentsLed.c:64:6:display5	8	static
+7segmentsLed.c:75:6:display6	8	static
+7segmentsLed.c:86:6:display7	8	static
+7segmentsLed.c:97:6:display8	8	static
+7segmentsLed.c:107:6:display9	8	static
+7segmentsLed.c:117:6:display7SEG	16	static
