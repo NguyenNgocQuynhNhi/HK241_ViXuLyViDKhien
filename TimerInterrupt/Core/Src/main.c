@@ -105,6 +105,7 @@ int main(void)
   setTimerFor7SegLed(25);
 
   int hour = 15, minute = 59, second = 50;
+  updateClockBuffer(hour, minute);
   setTimerForClock(100);
   while (1)
   {
