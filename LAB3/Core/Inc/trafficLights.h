@@ -19,16 +19,12 @@ extern int greenCounter;
 extern int vertical_counter;
 extern int horizontal_counter;
 
-extern int redGreen, redYellow, greenRed, yellowRed;
+extern int redGreen, redYellow, greenRed, yellowRed; // flag
 
-extern uint32_t currentTime;
-extern uint32_t previousTime;
-
-void initial();
+void turnOffLed();
+void turnOff7SEG();
 void turnOnRedGreen();
 void turnOnRedYellow();
 void turnOnGreenRed();
 void turnOnYellowRed();
-//void countDownRedGreen(int time);
-
 #endif /* INC_TRAFFICLIGHTS_H_ */

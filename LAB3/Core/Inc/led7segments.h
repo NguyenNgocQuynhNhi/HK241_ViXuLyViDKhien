@@ -8,7 +8,7 @@
 #ifndef INC_LED7SEGMENTS_H_
 #define INC_LED7SEGMENTS_H_
 
-#include "main.h"
+#include "global.h"
 
 void display0();
 void display1();
@@ -20,18 +20,7 @@ void display6();
 void display7();
 void display8();
 void display9();
-void display7SEG(int num);
+void display7SEG(int);
 
-//void Display0();
-//void Display1();
-//void Display2();
-//void Display3();
-//void Display4();
-//void Display5();
-//void Display6();
-//void Display7();
-//void Display8();
-//void Display9();
-//void Display7SEG(int num);
 
 #endif /* INC_LED7SEGMENTS_H_ */

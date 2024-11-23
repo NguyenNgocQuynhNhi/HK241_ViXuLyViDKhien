@@ -8,21 +8,16 @@
 #ifndef INC_SOFTWARETIMER_H_
 #define INC_SOFTWARETIMER_H_
 
-
+#include "main.h"
 #define TICK	10
 
 
-extern int timer1_flag;
-extern int timer7seg_flag;
-extern int oneSecond_flag;
+extern int timer_flag[3];
+extern int timer_counter[3];
+extern TIM_HandleTypeDef htim2;
 
-
-void setTimer1(int duration);
-void setTimerFor7segLed(int duration);
-void setTimerFor1Second(int duration);
-
-
+void setTimer(int, int);
 void timerRun();
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *);
 
 #endif /* INC_SOFTWARETIMER_H_ */

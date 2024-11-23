@@ -7,58 +7,28 @@
 
 #include "softwareTimer.h"
 
-int timer1_flag = 0;
-int timer1_counter = 0;
-void setTimer1(int duration)
+int timer_flag[3] = {0, 0, 0};
+int timer_counter[3] = {0, 0, 0};
+TIM_HandleTypeDef htim2;
+void setTimer(int timer, int duration)
 {
-	timer1_counter = duration / TICK;
-	timer1_flag = 0;
-}
-
-//int buffer1_flag = 0;
-//int buffer1_counter = 0;
-//void setTimerForBuffer1(int duration)
-//{
-//	buffer1_counter = duration / TICK;
-//	buffer1_flag = 0;
-//}
-
-int timer7seg_flag = 0;
-int timer7seg_counter = 0;
-void setTimerFor7segLed(int duration)
-{
-	timer7seg_counter = duration / TICK;
-	timer7seg_flag = 0;
-}
-
-int oneSecond_flag = 0;
-int oneSecond_counter = 0;
-void setTimerFor1Second(int duration)
-{
-	oneSecond_counter = duration / TICK;
-	oneSecond_flag = 0;
+	timer_counter[timer] = duration / TICK;
+	timer_flag[timer] = 0;
 }
 
 void timerRun()
 {
-	if (timer1_counter > 0) {
-		timer1_counter = timer1_counter - 1;
-		if (timer1_counter <= 0) {
-			timer1_flag = 1;
+	for(int i = 0; i < 3; i++){
+		if (timer_counter[i] > 0) {
+			timer_counter[i]--;
+			if (timer_counter[i] <= 0) {
+				timer_flag[i] = 1;
+			}
 		}
 	}
+}
 
-	if (timer7seg_counter > 0) {
-		timer7seg_counter = timer7seg_counter - 1;
-		if (timer7seg_counter <= 0) {
-			timer7seg_flag = 1;
-		}
-	}
-
-	if (oneSecond_counter > 0) {
-		oneSecond_counter = oneSecond_counter - 1;
-		if (oneSecond_counter <= 0) {
-			oneSecond_flag = 1;
-		}
-	}
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim2)
+{
+	timerRun();
 }

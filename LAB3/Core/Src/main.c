@@ -22,10 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "global.h"
-#include "softwareTimer.h"
 #include "fsm_automatic.h"
-#include "trafficLights.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -97,71 +94,42 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  setTimer1(1000);
-//  setTimerFor7segLed(1000);
-//  setTimerFor1Second(1000);
-  status = START;
-//  int counter = 0;
-//  initial();
-//  int hour = 15, minute = 59, second = 50;
-//  updateClockBuffer(hour, minute);
-  setTimerFor7segLed(1000);
-  setTimerFor1Second(1000);
+  //status = START;
+  //setTimer(0, 1000);
+ // setTimer(1, 1000);
+ // setTimer(2, 5000);
+ // updateClockBuffer(vertical_counter, horizontal_counter);
+
   while (1)
   {
+//	  if(timer_flag[2] == 1){
+//		  setTimer(2, 250);
+//	  	  update7seg();
+//	  }
+//	  turnOffLed();
+//	  HAL_Delay(1000);
+//	  turnOnYellowRed();
+//	  HAL_Delay(1000);
+	 fsm_automatic_run();
+//	 if (timer_flag[1] == 1) {
+//	 		setTimer(1, 1000);
+//	 		vertical_counter--;
+//	 		horizontal_counter--;
+//	 		updateClockBuffer(vertical_counter, horizontal_counter);
+//	 	}
+//		if (timer_flag[2] == 1) {
+//			setTimer(2, 2000);
+//			update7seg();
+//		}
+
+
+//	  if(timer_flag[0] == 1){
+//		  setTimer(0, 1000);
+//		  HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_1);
+//	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-
-//-----------TEST 7-SEGMENT LEDS-----------------------
-//	  if (counter >= 10) {
-//		  counter = 0;
-//	  }
-//	  display7SEG(counter++);
-//	  HAL_Delay(1000);
-
-//	  if (timer7seg_flag == 1) {
-//		  setTimerFor7segLed(250);
-//		  //TODO:
-//		  if (ledIndex >= MAX_LED) {
-//			  ledIndex = 0;
-//		  }
-//		  update7seg(ledIndex++);
-//	  }
-
-//	  if (oneSecond_flag == 1) {
-//		  setTimerFor1Second(1000);
-//		  //TODO:
-//		  second = second + 1;
-//		  if (second >= 60) {
-//			  second = 0;
-//			  minute = minute + 1;
-//		  }
-//		  if (minute >= 60) {
-//			  minute = 0;
-//			  hour = hour + 1;
-//		  }
-//		  if (hour >= 24) {
-//			  hour = 0;
-//		  }
-//		  updateClockBuffer(hour, minute);
-//	  }
-
-
-//-----------TEST 7-SEGMENT LEDS-----------------------
-
-//-----------TEST TIMER---------------------------
-//	  if (timer1_flag == 1) {
-//		  setTimer1(1000);
-//		  //TODO
-//		  HAL_GPIO_TogglePin(LED_BLUE_GPIO_Port, LED_BLUE_Pin);
-//	  }
-//-----------TEST TIMER---------------------------
-
-	  fsm_automatic_run();
-
-
   }
   /* USER CODE END 3 */
 }
@@ -265,10 +233,8 @@ static void MX_GPIO_Init(void)
                           |EN3_Pin|EN4_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SEG_0_Pin|SEG_1_Pin|SEG_2_Pin|SEG_10_Pin
-                          |SEG_11_Pin|SEG_12_Pin|SEG_13_Pin|LED_BLUE_Pin
-                          |SEG_3_Pin|SEG_4_Pin|SEG_5_Pin|SEG_6_Pin
-                          |SEG_7_Pin|SEG_8_Pin|SEG_9_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, SEG_0_Pin|SEG_1_Pin|SEG_2_Pin|LED_BLUE_Pin
+                          |SEG_3_Pin|SEG_4_Pin|SEG_5_Pin|SEG_6_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_1_Pin LED_2_Pin LED_3_Pin LED_4_Pin
                            LED_5_Pin LED_6_Pin EN1_Pin EN2_Pin
@@ -281,14 +247,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SEG_0_Pin SEG_1_Pin SEG_2_Pin SEG_10_Pin
-                           SEG_11_Pin SEG_12_Pin SEG_13_Pin LED_BLUE_Pin
-                           SEG_3_Pin SEG_4_Pin SEG_5_Pin SEG_6_Pin
-                           SEG_7_Pin SEG_8_Pin SEG_9_Pin */
-  GPIO_InitStruct.Pin = SEG_0_Pin|SEG_1_Pin|SEG_2_Pin|SEG_10_Pin
-                          |SEG_11_Pin|SEG_12_Pin|SEG_13_Pin|LED_BLUE_Pin
-                          |SEG_3_Pin|SEG_4_Pin|SEG_5_Pin|SEG_6_Pin
-                          |SEG_7_Pin|SEG_8_Pin|SEG_9_Pin;
+  /*Configure GPIO pins : SEG_0_Pin SEG_1_Pin SEG_2_Pin LED_BLUE_Pin
+                           SEG_3_Pin SEG_4_Pin SEG_5_Pin SEG_6_Pin */
+  GPIO_InitStruct.Pin = SEG_0_Pin|SEG_1_Pin|SEG_2_Pin|LED_BLUE_Pin
+                          |SEG_3_Pin|SEG_4_Pin|SEG_5_Pin|SEG_6_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -303,10 +265,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	timerRun();
-}
+
 /* USER CODE END 4 */
 
 /**

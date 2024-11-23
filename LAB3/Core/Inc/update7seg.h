@@ -8,14 +8,13 @@
 #ifndef INC_UPDATE7SEG_H_
 #define INC_UPDATE7SEG_H_
 
+#include "global.h"
 
-#include "led7segments.h"
-
-extern const int MAX_LED;
+#define	 MAX_LED 4
 extern int ledIndex;
-
-void updateClockBuffer(int vertical_counter, int horizontal_counter);
-void update7seg(int index);
+extern int led_buffer[4];
+void updateClockBuffer(int , int );
+void update7seg();
 
 
 #endif /* INC_UPDATE7SEG_H_ */

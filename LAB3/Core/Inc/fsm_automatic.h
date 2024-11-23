@@ -10,12 +10,6 @@
 
 
 #include "global.h"
-#include "trafficLights.h"
-#include "led7segments.h"
-#include "update7seg.h"
-
-//extern int hour, minute, second;	//TEST
-
 
 void fsm_automatic_run();
 

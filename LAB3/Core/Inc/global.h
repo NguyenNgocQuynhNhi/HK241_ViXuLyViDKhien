@@ -8,9 +8,11 @@
 #ifndef INC_GLOBAL_H_
 #define INC_GLOBAL_H_
 
-
+#include "main.h"
 #include "softwareTimer.h"
-
+#include "trafficLights.h"
+#include "led7segments.h"
+#include "update7seg.h"
 
 #define START			1
 #define RED_GREEN_AUTO	2
