@@ -1,0 +1,10 @@
+trafficLights.c:29:6:turnOffAllLeds	8	static
+trafficLights.c:34:6:initial	8	static
+trafficLights.c:40:6:turnOnRedGreen	8	static
+trafficLights.c:48:6:turnOnRedYellow	8	static
+trafficLights.c:56:6:turnOnGreenRed	8	static
+trafficLights.c:64:6:turnOnYellowRed	8	static
+trafficLights.c:74:6:toggleAllLeds	8	static
+trafficLights.c:82:6:toggleRed	8	static
+trafficLights.c:90:6:toggleYellow	8	static
+trafficLights.c:98:6:toggleGreen	8	static

@@ -1,0 +1,4 @@
+softwareTimer.c:12:6:setTimer1	16	static
+softwareTimer.c:20:6:setTimerFor7segLed	16	static
+softwareTimer.c:28:6:setTimerFor1Second	16	static
+softwareTimer.c:34:6:timerRun	4	static
