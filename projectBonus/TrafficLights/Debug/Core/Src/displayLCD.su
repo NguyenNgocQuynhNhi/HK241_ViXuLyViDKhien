@@ -1,0 +1,7 @@
+displayLCD.c:14:6:updateClockBuffer	16	static
+displayLCD.c:25:6:lcd_start_auto	8	static
+displayLCD.c:31:6:lcd_auto	8	static
+displayLCD.c:48:6:lcd_start_manual	8	static
+displayLCD.c:54:6:lcd_red_manual	8	static
+displayLCD.c:71:6:lcd_yellow_manual	8	static
+displayLCD.c:88:6:lcd_green_manual	8	static
