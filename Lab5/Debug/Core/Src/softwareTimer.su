@@ -1,0 +1,3 @@
+softwareTimer.c:14:6:setTimerForWaitingOK	16	static
+softwareTimer.c:21:6:timerRun	4	static
+softwareTimer.c:31:6:HAL_TIM_PeriodElapsedCallback	16	static
